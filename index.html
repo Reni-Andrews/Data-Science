@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Department Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 2s ease, transform 2s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-pink-100 overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-200 text-white p-4 flex items-center justify-between fixed top-0 w-full z-50">
+    <!-- ☰ Button (always visible) -->
+    <button onclick="openSidebar()" class="p-2 bg-gray-700 text-white rounded-md">
+      ☰
+    </button>
+
+    <!-- Top navbar links (desktop only) -->
+    <ul class="hidden md:flex space-x-5 text-black">
+      <li><a href="payment.html" class="hover:underline">payment</a></li>
+      <li><a href="faculty.html" class="hover:underline">Faculty</a></li>
+      <li><a href="student_login.html" class="hover:underline">Student</a></li>
+      <li><a href="alumni.html" class="hover:underline">Alumni</a></li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+      <li><a href="about.html" class="hover:underline">About</a></li>
+      <li><a href="news.php" class="hover:underline">🔔</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar (mobile nav + department links) -->
+  <aside id="sidebar" class="w-64 md:w-80 bg-gray-900 text-gray-100 min-h-screen p-6 fixed top-0 left-0 z-50 shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <button onclick="closeSidebar()" class="absolute top-6 right-6 p-2 rounded-full bg-gray-700 hover:bg-red-600 transition-colors duration-300 z-50" aria-label="Close sidebar">🡸</button>
+    
+    <h2 class="text-3xl font-extrabold mb-8 tracking-wide bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent select-none whitespace-nowrap">
+      DATA SCIENCE
+    </h2>
+
+    <!-- Top navbar links (mobile only) -->
+    <div class="space-y-2 mb-8 md:hidden">
+      <a href="faculty.html" class="block px-4 py-2 rounded bg-gray-800 hover:bg-blue-600">👨‍🏫 Faculty</a>
+      <a href="student_login.html" class="block px-4 py-2 rounded bg-gray-800 hover:bg-green-600">🎓 Student</a>
+      <a href="alumni.html" class="block px-4 py-2 rounded bg-gray-800 hover:bg-purple-600">🏫 Alumni</a>
+      <a href="news.php" class="block px-4 py-2 rounded bg-gray-800 hover:bg-yellow-600">📰 notice</a>
+      <a href="contact.html" class="block px-4 py-2 rounded bg-gray-800 hover:bg-pink-600">📞 Contact</a>
+      <a href="about.html" class="block px-4 py-2 rounded bg-gray-800 hover:bg-indigo-600">ℹ️ About</a>
+    </div>
+
+    <!-- Department Sidebar links -->
+    <ul class="space-y-4 font-medium text-base leading-relaxed">
+      <li><a href="overview.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-pink-600 hover:text-white transition">🔍 Overview</a></li>
+      <li><a href="Department_activities.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-purple-600 hover:text-white transition">🏢 Department Activities</a></li>
+      <li><a href="Association_events.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 hover:text-white transition">🎉 Association Events</a></li>
+      <li><a href="research.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-pink-600 hover:text-white transition">🔬 Research</a></li>
+      <li><a href="hod_message.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-purple-600 hover:text-white transition">📝 HOD Message</a></li>
+      <li><a href="achievements.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 hover:text-white transition">🏆 Achievements</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content" class="pt-20 p-6 space-y-12 fade-in bg-pink-100 min-h-screen">
+    <!-- Welcome -->
+    <section class="text-center">
+      <h1 class="text-4xl font-extrabold text-gray-800">👋 Welcome to the Department of Data Science</h1>
+      <p class="mt-2 text-lg text-gray-600">Explore our vision, mission, faculty, and educational excellence</p>
+    </section>
+
+    <!-- Vision -->
+    <section class="bg-white rounded-xl shadow-lg p-6">
+      <h2 class="text-2xl font-bold text-black bg-green-200 p-3 rounded-t-lg">🌟 Vision</h2>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        To become a center of excellence in Data Science education and research, producing globally competent professionals and researchers.
+      </p>
+    </section>
+
+    <!-- Mission -->
+    <section class="bg-white rounded-xl shadow-lg p-6">
+      <h2 class="text-2xl font-bold text-black bg-green-200 p-3 rounded-t-lg">🎯 Mission</h2>
+      <ul class="mt-4 list-disc list-inside space-y-2 text-gray-700">
+        <li>Provide quality education in Data Science and related fields.</li>
+        <li>Encourage innovation, research, and problem-solving skills.</li>
+        <li>Collaborate with industries and research organizations.</li>
+        <li>Promote ethical practices and lifelong learning.</li>
+      </ul>
+    </section>
+
+    <!-- Overview -->
+    <section class="bg-white rounded-xl shadow-lg p-6">
+      <h2 class="text-2xl font-bold text-black bg-green-200 p-3 rounded-t-lg">🔍 Overview</h2>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        The Department offers undergraduate and postgraduate programs focusing on machine learning, big data analytics, artificial intelligence, and deep learning, preparing students for careers in the tech industry and academia.
+      </p>
+    </section>
+
+    <!-- HOD Message -->
+    <section class="bg-white rounded-xl shadow-lg p-6">
+      <h2 class="text-2xl font-bold text-black bg-green-200 p-3 rounded-t-lg">📝 Message from the HoD</h2>
+      <blockquote class="mt-4 text-gray-700 italic border-l-4 border-indigo-400 pl-4">
+        "Welcome to the Department of Data Science. We are committed to providing cutting-edge education and fostering a research-driven environment. Our faculty members are actively engaged in pioneering research and industry collaborations."
+      </blockquote>
+    </section>
+
+    <!-- Faculty Cards -->
+    <section>
+      <h2 class="text-2xl font-bold text-black bg-green-200 p-3 rounded-t-lg">👩‍🏫 Our Facultys</h2>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Faculty Card Template -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+          <img src="T100501.jpg" alt="Dr. R. Sandrilla photo" class="rounded-full w-32 h-32 object-cover mx-auto border-4 border-indigo-200">
+          <h3 class="text-center mt-4 text-xl font-semibold text-gray-800">Dr. R. Sandrilla</h3>
+          <p class="text-center text-gray-600">Assistant Professor & HoD</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+          <img src="T231701.jpg" alt="Dr. S. Vijay photo" class="rounded-full w-32 h-32 object-cover mx-auto border-4 border-indigo-200">
+          <h3 class="text-center mt-4 text-xl font-semibold text-gray-800">Dr. S. Vijay</h3>
+          <p class="text-center text-gray-600">Assistant Professor & Department President</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+          <img src="IMG_20250101_002151.jpg" alt="Faculty 3 photo" class="rounded-full w-32 h-32 object-cover mx-auto border-4 border-indigo-200">
+          <h3 class="text-center mt-4 text-xl font-semibold text-gray-800">Faculty 3</h3>
+          <p class="text-center text-gray-600">Assistant Professor</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+          <img src="IMG_20250101_002151.jpg" alt="Faculty 4 photo" class="rounded-full w-32 h-32 object-cover mx-auto border-4 border-indigo-200">
+          <h3 class="text-center mt-4 text-xl font-semibold text-gray-800">Faculty 4</h3>
+          <p class="text-center text-gray-600">Assistant Professor</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+          <img src="IMG_20250101_002151.jpg" alt="Faculty 5 photo" class="rounded-full w-32 h-32 object-cover mx-auto border-4 border-indigo-200">
+          <h3 class="text-center mt-4 text-xl font-semibold text-gray-800">Faculty 5</h3>
+          <p class="text-center text-gray-600">Assistant Professor</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn"
+    onclick="scrollToTop()"
+    class="fixed bottom-2 right-5 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition duration-300 hidden z-50 animate-bounce">
+    ^
+  </button>
+
+
+  <!-- Scripts -->
+  <script>
+    function openSidebar() {
+      document.getElementById('sidebar').classList.remove('-translate-x-full');
+    }
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.add('-translate-x-full');
+    }
+
+    // Show animation when DOM loads
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#sidebar a').forEach(link => {
+        link.addEventListener('click', closeSidebar);
+      });
+      document.getElementById('main-content').classList.add('show');
+    });
+
+    // Scroll to Top Button Show/Hide
+    window.addEventListener('scroll', () => {
+      document.getElementById('scrollToTopBtn').classList.toggle('hidden', window.scrollY <= 300);
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

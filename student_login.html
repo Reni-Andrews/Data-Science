@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 min-h-screen overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-200 text-white px-4 py-3 flex items-center justify-between fixed top-0 w-full z-50 shadow-md">
+    <button onclick="openSidebar()" class="p-2 bg-gray-800 hover:bg-gray-700 rounded text-white">☰</button>
+    <ul class="flex space-x-6 text-black font-semibold">
+      <li><a href="faculty.html" class="hover:underline">faculty</a></li>
+      <li><a href="news.php" class="hover:underline">Notice</a></li>
+      <li><a href="timetable.html" class="hover:underline">Timetable</a></li>
+      <li><a href="absentees.php" class="hover:underline">Absentees</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 md:w-80 bg-gray-900 text-gray-100 min-h-screen p-6 fixed top-0 left-0 z-50 shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <button onclick="closeSidebar()" class="absolute top-6 right-6 p-2 rounded-full bg-gray-700 hover:bg-red-600" aria-label="Close sidebar">🡸</button>
+    <h2 class="text-3xl font-extrabold mb-10 bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent text-center">DATA SCIENCE</h2>
+    <ul class="space-y-4 font-medium text-base leading-relaxed">
+      <li><a href="index.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 transition">🏠 Home</a></li>
+      <li><a href="overview.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-pink-500 transition">🔍 Overview</a></li>
+      <li><a href="Department_activities.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-purple-500 transition">🏢 Department Activities</a></li>
+      <li><a href="Association_events.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 transition">🎉 Association Events</a></li>
+      <li><a href="research.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-pink-500 transition">🔬 Research</a></li>
+      <li><a href="hod_message.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-purple-500 transition">📝 HOD Message</a></li>
+      <li><a href="achievements.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 transition">🏆 Achievements</a></li>
+    </ul>
+  </aside>
+
+  <!-- Login Form -->
+  <main class="pt-28 flex items-center justify-center px-4">
+    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-sm border-t-4 border-pink-400">
+      <h2 class="text-3xl font-bold text-center text-pink-600 mb-6">🎓 Student Login</h2>
+      <form id="loginForm" onsubmit="return loginStudent()" class="space-y-4">
+        <div>
+          <label for="username" class="block mb-1 text-gray-700 font-medium">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" required
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" />
+        </div>
+        <div>
+          <label for="password" class="block mb-1 text-gray-700 font-medium">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" />
+        </div>
+        <button type="submit"
+                class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition duration-200">
+          Login
+        </button>
+      </form>
+      <p id="message" class="mt-4 text-center text-red-600 font-medium"></p>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    function openSidebar() {
+      document.getElementById('sidebar').classList.remove('-translate-x-full');
+      if (window.innerWidth >= 768) {
+        document.querySelector('main').classList.add('ml-64');
+      }
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.add('-translate-x-full');
+      document.querySelector('main').classList.remove('ml-64');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#sidebar a').forEach(link => {
+        link.addEventListener('click', () => closeSidebar());
+      });
+
+      // Store default credentials into local storage (one time setup)
+      if (!localStorage.getItem("studentUsers")) {
+        const defaultUsers = [
+          { username: "s", password: "1" },
+          { username: "n", password: "1" }
+        ];
+        localStorage.setItem("studentUsers", JSON.stringify(defaultUsers));
+      }
+    });
+
+    function loginStudent() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const users = JSON.parse(localStorage.getItem("studentUsers")) || [];
+
+      const matchedUser = users.find(user => user.username === username && user.password === password);
+
+      if (matchedUser) {
+        // Save current user for session use
+        localStorage.setItem("currentStudent", JSON.stringify(matchedUser));
+        if (username === "s") {
+          localStorage.setItem("loggedIn", "true");
+          window.location.href = "attendance.html";
+        } else if (username === "n") {
+          localStorage.setItem("loggedIn", "true");
+          window.location.href = "add_news.php";
+        }
+      } else {
+        document.getElementById("message").textContent = "Invalid username or password.";
+      }
+
+      return false; // Prevent form submission
+    }
+  </script>
+
+</body>
+</html>

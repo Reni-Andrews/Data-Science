@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Table</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-100">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-200 text-white p-4 flex items-center justify-between fixed top-0 w-full z-50">
+    <button onclick="openSidebar()" class="p-2 bg-gray-700 text-white rounded-md">☰</button>
+    <ul class="hidden md:flex space-x-5 text-black">
+      <li><a href="student_login.html" class="hover:underline">Student</a></li>
+      <li><a href="news.php" class="hover:underline">Notice</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 md:w-80 bg-gray-900 text-gray-100 min-h-screen p-6 fixed top-0 left-0 z-50 shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <button onclick="closeSidebar()" class="absolute top-6 right-6 p-2 rounded-full bg-gray-700 hover:bg-red-600" aria-label="Close sidebar">🡸</button>
+    <h2 class="text-3xl font-extrabold mb-10 bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent text-center">DATA SCIENCE</h2>
+    <ul class="space-y-4 font-medium text-base leading-relaxed">
+      <li><a href="index.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 transition">🏠 Home</a></li>
+      <li><a href="overview.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-pink-500 transition">🔍 Overview</a></li>
+      <li><a href="Department_activities.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-purple-500 transition">🏢 Department Activities</a></li>
+      <li><a href="Association_events.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 transition">🎉 Association Events</a></li>
+      <li><a href="research.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-pink-500 transition">🔬 Research</a></li>
+      <li><a href="hod_message.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-purple-500 transition">📝 HOD Message</a></li>
+      <li><a href="achievements.html" class="block px-5 py-2 rounded-lg bg-gray-800 hover:bg-indigo-600 transition">🏆 Achievements</a></li>
+    </ul>
+  </aside>
+
+
+  <!-- Main -->
+  <main class="pt-28 px-6">
+    <div class="text-center my-4">
+      <label for="yearSelect" class="text-lg font-medium text-gray-700 mr-2">Select Year:</label>
+      <select id="yearSelect" class="border rounded px-4 py-2 text-gray-800 bg-white shadow">
+        <option value="1">📘 1st Year</option>
+        <option value="2">📗 2nd Year</option>
+        <option value="3">📕 3rd Year</option>
+      </select>
+    </div>
+
+    <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <h1 class="text-3xl font-bold text-center py-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white">📚 Time Table</h1>
+
+      <!-- Tables -->
+      <div class="overflow-x-auto">
+        <!-- 1st Year Table -->
+        <table class="year-table w-full table-auto border border-gray-300 text-center" id="table-1">
+          <thead class="bg-blue-200 text-gray-800">
+            <tr>
+              <th class="border px-4 py-2">Day Order</th>
+              <th class="border px-4 py-2">8:30 - 9:25</th>
+              <th class="border px-4 py-2">9:25 - 10:20</th>
+              <th class="border px-4 py-2">10:20 - 11:15</th>
+              <th class="border px-4 py-2 bg-yellow-100">BREAK<br>11:15 - 11:30</th>
+              <th class="border px-4 py-2">11:30 - 12:25</th>
+              <th class="border px-4 py-2">12:25 - 1:15</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">I</td><td class="border px-4 py-2">Math</td><td class="border px-4 py-2">English</td><td class="border px-4 py-2">Physics</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Lab</td><td class="border px-4 py-2">Python</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">II</td><td class="border px-4 py-2">Python</td><td class="border px-4 py-2">Physics</td><td class="border px-4 py-2">Math</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">English</td><td class="border px-4 py-2">Lab</td></tr>
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">III</td><td class="border px-4 py-2">Lab</td><td class="border px-4 py-2">Math</td><td class="border px-4 py-2">Python</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Physics</td><td class="border px-4 py-2">English</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">IV</td><td class="border px-4 py-2">Physics</td><td class="border px-4 py-2">English</td><td class="border px-4 py-2">Lab</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Math</td><td class="border px-4 py-2">Python</td></tr>
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">V</td><td class="border px-4 py-2">English</td><td class="border px-4 py-2">Math</td><td class="border px-4 py-2">Physics</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Python</td><td class="border px-4 py-2">Lab</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">VI</td><td class="border px-4 py-2">Math</td><td class="border px-4 py-2">Python</td><td class="border px-4 py-2">English</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Lab</td><td class="border px-4 py-2">Physics</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 2nd Year Table -->
+        <table class="year-table w-full table-auto border border-gray-300 text-center hidden" id="table-2">
+          <thead class="bg-green-200 text-gray-800">
+            <tr>
+              <th class="border px-4 py-2">Day Order</th>
+              <th class="border px-4 py-2">8:30 - 9:25</th>
+              <th class="border px-4 py-2">9:25 - 10:20</th>
+              <th class="border px-4 py-2">10:20 - 11:15</th>
+              <th class="border px-4 py-2 bg-yellow-100">BREAK<br>11:15 - 11:30</th>
+              <th class="border px-4 py-2">11:30 - 12:25</th>
+              <th class="border px-4 py-2">12:25 - 1:15</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">I</td><td class="border px-4 py-2">Java</td><td class="border px-4 py-2">DBMS</td><td class="border px-4 py-2">SE</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">OS</td><td class="border px-4 py-2">Mini Project</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">II</td><td class="border px-4 py-2">SE</td><td class="border px-4 py-2">Java</td><td class="border px-4 py-2">DBMS</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Mini Project</td><td class="border px-4 py-2">OS</td></tr>
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">III</td><td class="border px-4 py-2">DBMS</td><td class="border px-4 py-2">SE</td><td class="border px-4 py-2">OS</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Java</td><td class="border px-4 py-2">Mini Project</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">IV</td><td class="border px-4 py-2">Mini Project</td><td class="border px-4 py-2">OS</td><td class="border px-4 py-2">Java</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">DBMS</td><td class="border px-4 py-2">SE</td></tr>
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">V</td><td class="border px-4 py-2">OS</td><td class="border px-4 py-2">Mini Project</td><td class="border px-4 py-2">Java</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">SE</td><td class="border px-4 py-2">DBMS</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">VI</td><td class="border px-4 py-2">SE</td><td class="border px-4 py-2">DBMS</td><td class="border px-4 py-2">Mini Project</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">OS</td><td class="border px-4 py-2">Java</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 3rd Year Table -->
+        <table class="year-table w-full table-auto border border-gray-300 text-center hidden" id="table-3">
+          <thead class="bg-red-200 text-gray-800">
+            <tr>
+              <th class="border px-4 py-2">Day Order</th>
+              <th class="border px-4 py-2">8:30 - 9:25</th>
+              <th class="border px-4 py-2">9:25 - 10:20</th>
+              <th class="border px-4 py-2">10:20 - 11:15</th>
+              <th class="border px-4 py-2 bg-yellow-100">BREAK<br>11:15 - 11:30</th>
+              <th class="border px-4 py-2">11:30 - 12:25</th>
+              <th class="border px-4 py-2">12:25 - 1:15</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">I</td><td class="border px-4 py-2">AI</td><td class="border px-4 py-2">ML</td><td class="border px-4 py-2">DL</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Cloud</td><td class="border px-4 py-2">Project</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">II</td><td class="border px-4 py-2">ML</td><td class="border px-4 py-2">Cloud</td><td class="border px-4 py-2">AI</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">DL</td><td class="border px-4 py-2">Project</td></tr>
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">III</td><td class="border px-4 py-2">Cloud</td><td class="border px-4 py-2">Project</td><td class="border px-4 py-2">ML</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">AI</td><td class="border px-4 py-2">DL</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">IV</td><td class="border px-4 py-2">DL</td><td class="border px-4 py-2">ML</td><td class="border px-4 py-2">AI</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">Project</td><td class="border px-4 py-2">Cloud</td></tr>
+            <tr class="bg-white"><td class="border px-4 py-2 font-semibold">V</td><td class="border px-4 py-2">Project</td><td class="border px-4 py-2">DL</td><td class="border px-4 py-2">Cloud</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">ML</td><td class="border px-4 py-2">AI</td></tr>
+            <tr class="bg-gray-50"><td class="border px-4 py-2 font-semibold">VI</td><td class="border px-4 py-2">AI</td><td class="border px-4 py-2">ML</td><td class="border px-4 py-2">Cloud</td><td class="border px-4 py-2 bg-yellow-50">--</td><td class="border px-4 py-2">DL</td><td class="border px-4 py-2">Project</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    // Open sidebar
+    function openSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const main = document.querySelector('main');
+      sidebar.classList.remove('-translate-x-full');
+      // Only add margin to main content on large screens
+      if (window.innerWidth >= 1024) { // lg breakpoint
+        main.classList.add('ml-64');
+      }
+    }
+
+    // Close sidebar
+    function closeSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const main = document.querySelector('main');
+      sidebar.classList.add('-translate-x-full');
+      main.classList.remove('ml-64');
+    }
+
+    // Auto-close sidebar when clicking a link inside it (good for mobile)
+    window.addEventListener('DOMContentLoaded', () => {
+      const sidebarLinks = document.querySelectorAll('#sidebar a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          closeSidebar();
+        });
+      });
+    });
+
+    const select = document.getElementById('yearSelect');
+    const tables = document.querySelectorAll('.year-table');
+
+    select.addEventListener('change', function () {
+      const selected = this.value;
+      tables.forEach((table, index) => {
+        table.classList.toggle('hidden', index + 1 !== parseInt(selected));
+      });
+    });
+
+    select.dispatchEvent(new Event('change'));
+  </script>
+
+</body>
+</html>
