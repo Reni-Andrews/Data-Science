@@ -30,7 +30,7 @@ if ($result->num_rows === 1) {
     // Redirect based on username if needed
     switch ($username) {
         case "sandrilla":
-            header("Location: faculty1.php");
+            header("Location: faculty1.html");
             break;
         case "vijay":
             header("Location: faculty2.php");
