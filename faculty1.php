@@ -41,7 +41,8 @@ if (!isset($_SESSION['username'])) {
       <li><a href="news.php" class="hover:underline">Notice</a></li>
       <li><form action="faculty_logout.php" method="POST" class="inline">
   <button type="submit" class="bg-red-600 px-4 py-1 rounded text-white hover:bg-red-700">Logout</button>
-</form></li>
+</form>
+</li>
 
     </ul>
   </nav>
