@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     <?php endif; ?>
 
-    <form method="POST" class="space-y-6">
+    <form method="POST" action="add_news.php" class="space-y-6">
       <input type="hidden" name="news_id" value="<?php echo $edit_id ?? ''; ?>"/>
 
       <div class="relative">
