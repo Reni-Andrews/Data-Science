@@ -29,6 +29,7 @@ try {
         'students' => $students
     ]);
 } catch (PDOException $e) {
-    echo json_encode(['error' => $e->getMessage()]);
+    http_response_code(500);
+    echo json_encode(['error' => 'Database error', 'details' => $e->getMessage()]);
 }
 ?>
