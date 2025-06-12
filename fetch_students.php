@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 $year = isset($_GET['year']) ? intval($_GET['year']) : 1;
 $today = date('Y-m-d');
 
-$host = 'localhost';
+$host = 'https://reni-andrews.github.io/Data-Science';
 $db = 'attendance_db';
 $user = 'root';
 $pass = '';
